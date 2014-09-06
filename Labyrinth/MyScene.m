@@ -8,46 +8,36 @@
 
 #import "MyScene.h"
 
+#define BALL_SIZE 50
+
+@interface MyScene()
+{
+    SKSpriteNode *ball;
+}
+@end
+
 @implementation MyScene
 
 -(id)initWithSize:(CGSize)size {    
     if (self = [super initWithSize:size]) {
-        /* Setup your scene here */
+        self.backgroundColor = [SKColor colorWithRed:0.85 green:0.85 blue:0.66 alpha:1.0];
         
-        self.backgroundColor = [SKColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
-        
-        SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
-        
-        myLabel.text = @"Hello, World!";
-        myLabel.fontSize = 30;
-        myLabel.position = CGPointMake(CGRectGetMidX(self.frame),
-                                       CGRectGetMidY(self.frame));
-        
-        [self addChild:myLabel];
+        ball = [SKSpriteNode spriteNodeWithImageNamed:@"GreenBall"];
+        ball.size = CGSizeMake(BALL_SIZE, BALL_SIZE);
+        ball.position = CGPointMake(BALL_SIZE / 2, self.size.height - (BALL_SIZE / 2));
+        SKAction *action = [SKAction moveByX:BALL_SIZE y:0 duration:0.5];
+        [ball runAction:[SKAction repeatActionForever:action]];
+        [self addChild:ball];
     }
     return self;
 }
 
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    /* Called when a touch begins */
-    
-    for (UITouch *touch in touches) {
-        CGPoint location = [touch locationInNode:self];
-        
-        SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
-        
-        sprite.position = location;
-        
-        SKAction *action = [SKAction rotateByAngle:M_PI duration:1];
-        
-        [sprite runAction:[SKAction repeatActionForever:action]];
-        
-        [self addChild:sprite];
-    }
-}
-
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
+    if (ball.position.x >= (self.size.width - (BALL_SIZE / 2)))
+    {
+        [ball removeAllActions];
+    }
 }
 
 @end

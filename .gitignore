@@ -1,0 +1,6 @@
+.DS_Store
+*~.nib
+DerivedData/
+build/
+*.pbxuser
+xcuserdata
