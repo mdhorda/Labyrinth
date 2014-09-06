@@ -18,24 +18,9 @@
 		66FF671E19BB6EB100D48F14 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66FF671C19BB6EB100D48F14 /* Main_iPad.storyboard */; };
 		66FF672119BB6EB100D48F14 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FF672019BB6EB100D48F14 /* ViewController.m */; };
 		66FF672419BB6EB100D48F14 /* MyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FF672319BB6EB100D48F14 /* MyScene.m */; };
-		66FF672619BB6EB100D48F14 /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = 66FF672519BB6EB100D48F14 /* Spaceship.png */; };
 		66FF672819BB6EB100D48F14 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66FF672719BB6EB100D48F14 /* Images.xcassets */; };
-		66FF672F19BB6EB100D48F14 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FF672E19BB6EB100D48F14 /* XCTest.framework */; };
-		66FF673019BB6EB100D48F14 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FF670519BB6EB100D48F14 /* Foundation.framework */; };
-		66FF673119BB6EB100D48F14 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FF670919BB6EB100D48F14 /* UIKit.framework */; };
-		66FF673919BB6EB100D48F14 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 66FF673719BB6EB100D48F14 /* InfoPlist.strings */; };
-		66FF673B19BB6EB100D48F14 /* LabyrinthTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FF673A19BB6EB100D48F14 /* LabyrinthTests.m */; };
+		66FF674719BB72EA00D48F14 /* GreenBall.png in Resources */ = {isa = PBXBuildFile; fileRef = 66FF674619BB72EA00D48F14 /* GreenBall.png */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		66FF673219BB6EB100D48F14 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 66FF66FA19BB6EB100D48F14 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 66FF670119BB6EB100D48F14;
-			remoteInfo = Labyrinth;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		66FF670219BB6EB100D48F14 /* Labyrinth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Labyrinth.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,13 +40,9 @@
 		66FF672019BB6EB100D48F14 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		66FF672219BB6EB100D48F14 /* MyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyScene.h; sourceTree = "<group>"; };
 		66FF672319BB6EB100D48F14 /* MyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyScene.m; sourceTree = "<group>"; };
-		66FF672519BB6EB100D48F14 /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
 		66FF672719BB6EB100D48F14 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		66FF672D19BB6EB100D48F14 /* LabyrinthTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LabyrinthTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		66FF672E19BB6EB100D48F14 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		66FF673619BB6EB100D48F14 /* LabyrinthTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LabyrinthTests-Info.plist"; sourceTree = "<group>"; };
-		66FF673819BB6EB100D48F14 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		66FF673A19BB6EB100D48F14 /* LabyrinthTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LabyrinthTests.m; sourceTree = "<group>"; };
+		66FF674619BB72EA00D48F14 /* GreenBall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GreenBall.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,16 +57,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		66FF672A19BB6EB100D48F14 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				66FF672F19BB6EB100D48F14 /* XCTest.framework in Frameworks */,
-				66FF673119BB6EB100D48F14 /* UIKit.framework in Frameworks */,
-				66FF673019BB6EB100D48F14 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -93,7 +64,6 @@
 			isa = PBXGroup;
 			children = (
 				66FF670D19BB6EB100D48F14 /* Labyrinth */,
-				66FF673419BB6EB100D48F14 /* LabyrinthTests */,
 				66FF670419BB6EB100D48F14 /* Frameworks */,
 				66FF670319BB6EB100D48F14 /* Products */,
 			);
@@ -103,7 +73,6 @@
 			isa = PBXGroup;
 			children = (
 				66FF670219BB6EB100D48F14 /* Labyrinth.app */,
-				66FF672D19BB6EB100D48F14 /* LabyrinthTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -131,7 +100,7 @@
 				66FF672019BB6EB100D48F14 /* ViewController.m */,
 				66FF672219BB6EB100D48F14 /* MyScene.h */,
 				66FF672319BB6EB100D48F14 /* MyScene.m */,
-				66FF672519BB6EB100D48F14 /* Spaceship.png */,
+				66FF674619BB72EA00D48F14 /* GreenBall.png */,
 				66FF672719BB6EB100D48F14 /* Images.xcassets */,
 				66FF670E19BB6EB100D48F14 /* Supporting Files */,
 			);
@@ -145,24 +114,6 @@
 				66FF671019BB6EB100D48F14 /* InfoPlist.strings */,
 				66FF671319BB6EB100D48F14 /* main.m */,
 				66FF671519BB6EB100D48F14 /* Labyrinth-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		66FF673419BB6EB100D48F14 /* LabyrinthTests */ = {
-			isa = PBXGroup;
-			children = (
-				66FF673A19BB6EB100D48F14 /* LabyrinthTests.m */,
-				66FF673519BB6EB100D48F14 /* Supporting Files */,
-			);
-			path = LabyrinthTests;
-			sourceTree = "<group>";
-		};
-		66FF673519BB6EB100D48F14 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				66FF673619BB6EB100D48F14 /* LabyrinthTests-Info.plist */,
-				66FF673719BB6EB100D48F14 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -187,24 +138,6 @@
 			productReference = 66FF670219BB6EB100D48F14 /* Labyrinth.app */;
 			productType = "com.apple.product-type.application";
 		};
-		66FF672C19BB6EB100D48F14 /* LabyrinthTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 66FF674119BB6EB100D48F14 /* Build configuration list for PBXNativeTarget "LabyrinthTests" */;
-			buildPhases = (
-				66FF672919BB6EB100D48F14 /* Sources */,
-				66FF672A19BB6EB100D48F14 /* Frameworks */,
-				66FF672B19BB6EB100D48F14 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				66FF673319BB6EB100D48F14 /* PBXTargetDependency */,
-			);
-			name = LabyrinthTests;
-			productName = LabyrinthTests;
-			productReference = 66FF672D19BB6EB100D48F14 /* LabyrinthTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -213,11 +146,6 @@
 			attributes = {
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Mehul Dhorda";
-				TargetAttributes = {
-					66FF672C19BB6EB100D48F14 = {
-						TestTargetID = 66FF670119BB6EB100D48F14;
-					};
-				};
 			};
 			buildConfigurationList = 66FF66FD19BB6EB100D48F14 /* Build configuration list for PBXProject "Labyrinth" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -233,7 +161,6 @@
 			projectRoot = "";
 			targets = (
 				66FF670119BB6EB100D48F14 /* Labyrinth */,
-				66FF672C19BB6EB100D48F14 /* LabyrinthTests */,
 			);
 		};
 /* End PBXProject section */
@@ -243,19 +170,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66FF672619BB6EB100D48F14 /* Spaceship.png in Resources */,
+				66FF674719BB72EA00D48F14 /* GreenBall.png in Resources */,
 				66FF672819BB6EB100D48F14 /* Images.xcassets in Resources */,
 				66FF671E19BB6EB100D48F14 /* Main_iPad.storyboard in Resources */,
 				66FF671B19BB6EB100D48F14 /* Main_iPhone.storyboard in Resources */,
 				66FF671219BB6EB100D48F14 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		66FF672B19BB6EB100D48F14 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				66FF673919BB6EB100D48F14 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,23 +192,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		66FF672919BB6EB100D48F14 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				66FF673B19BB6EB100D48F14 /* LabyrinthTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		66FF673319BB6EB100D48F14 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 66FF670119BB6EB100D48F14 /* Labyrinth */;
-			targetProxy = 66FF673219BB6EB100D48F14 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		66FF671019BB6EB100D48F14 /* InfoPlist.strings */ = {
@@ -314,14 +217,6 @@
 				66FF671D19BB6EB100D48F14 /* Base */,
 			);
 			name = Main_iPad.storyboard;
-			sourceTree = "<group>";
-		};
-		66FF673719BB6EB100D48F14 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				66FF673819BB6EB100D48F14 /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -427,46 +322,6 @@
 			};
 			name = Release;
 		};
-		66FF674219BB6EB100D48F14 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Labyrinth.app/Labyrinth";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Labyrinth/Labyrinth-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "LabyrinthTests/LabyrinthTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		66FF674319BB6EB100D48F14 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Labyrinth.app/Labyrinth";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Labyrinth/Labyrinth-Prefix.pch";
-				INFOPLIST_FILE = "LabyrinthTests/LabyrinthTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -486,14 +341,7 @@
 				66FF674019BB6EB100D48F14 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-		};
-		66FF674119BB6EB100D48F14 /* Build configuration list for PBXNativeTarget "LabyrinthTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				66FF674219BB6EB100D48F14 /* Debug */,
-				66FF674319BB6EB100D48F14 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
