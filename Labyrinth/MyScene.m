@@ -7,10 +7,19 @@
 //
 
 #import "MyScene.h"
+#import "Maze.h"
 #import <math.h>
 
 #define BALL_DIAM 50
 #define BALL_RADIUS BALL_DIAM / 2
+
+#define WALL_SIZE 10
+
+#define MAZE_ROWS 5
+#define MAZE_COLUMNS 8
+
+#define GRAVITY_DAMPING_FACTOR 5
+#define BALL_IN_HOLE_MARGIN 5
 
 #define BACKGROUND_COLOR [SKColor colorWithRed:0.85 green:0.85 blue:0.66 alpha:1.0]
 #define BLACK_COLOR [SKColor colorWithRed:0 green:0 blue:0 alpha:1.0]
@@ -19,6 +28,7 @@
 {
     SKSpriteNode *ball;
     SKSpriteNode *hole;
+    NSMutableArray *walls;
 }
 @end
 
@@ -31,14 +41,6 @@
         
         // Set physics body so that ball doesn't go outside the screen bounds
         self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
-        
-        // Create wall
-        SKSpriteNode *wall = [SKSpriteNode spriteNodeWithColor:BLACK_COLOR size:CGSizeMake(600, 10)];
-        wall.position = CGPointMake(0, 200);
-        wall.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:wall.size];
-        wall.physicsBody.dynamic = NO;
-        wall.physicsBody.resting = YES;
-        [self addChild:wall];
         
         // Create hole
         hole = [SKSpriteNode spriteNodeWithImageNamed:@"BlackHole"];
@@ -53,6 +55,10 @@
         ball.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:BALL_RADIUS];
         ball.physicsBody.dynamic = YES;
         [self addChild:ball];
+        
+        // Create walls
+        walls = [NSMutableArray array];
+        [self createRandomMaze];
     }
     return self;
 }
@@ -64,16 +70,77 @@
     CGPoint newLocation = [touch locationInView:self.view];
     CGPoint prevLocation = [touch previousLocationInView:self.view];
     float xOffset = newLocation.x - prevLocation.x;
+    float yOffset = newLocation.y - prevLocation.y;
     
-    [ball.physicsBody applyImpulse:CGVectorMake(xOffset / 10, 0)];
+    // Change gravity based on direction of touch
+    self.physicsWorld.gravity = CGVectorMake(xOffset / GRAVITY_DAMPING_FACTOR, -yOffset / GRAVITY_DAMPING_FACTOR);
 }
 
 -(void)update:(CFTimeInterval)currentTime
 {
-    // Check if ball is in the hole
-    if (fabsf(ball.position.x - hole.position.x) < 3 &&
-        fabsf(ball.position.y - hole.position.y) < 3)
+    // If ball is in the hole, reset ball position and create new maze
+    if (fabsf(ball.position.x - hole.position.x) < BALL_IN_HOLE_MARGIN &&
+        fabsf(ball.position.y - hole.position.y) < BALL_IN_HOLE_MARGIN)
+    {
         ball.position = CGPointMake(BALL_RADIUS, self.size.height - BALL_RADIUS);
+        ball.physicsBody.velocity = CGVectorMake(0, 0);
+        [self createRandomMaze];
+    }
+}
+
+-(void)createRandomMaze
+{
+    [self removeChildrenInArray:walls];
+    [walls removeAllObjects];
+    
+    // Get maze layout
+    Maze *maze = [[Maze alloc] initWithRows:MAZE_ROWS andColumns:MAZE_COLUMNS];
+    [maze printGrid];
+    
+    // Calculate wall size
+    float horzWallWidth = self.size.width / MAZE_COLUMNS;
+    float vertWallHeight = self.size.height / MAZE_ROWS;
+    
+    // Create walls from grid
+    float width, height, posX, posY;
+    for (int y = 0; y < MAZE_ROWS; y++)
+    {
+        for (int x = 0; x < MAZE_COLUMNS; x++)
+        {
+            int direction = [maze getDirectionAtRow:x andColumn:y];
+            
+            // Draw a horizontal wall on the south edge if the direction is available and we're not on the last row
+            if (((direction & S) == 0) && (y < MAZE_ROWS-1))
+            {
+                width = horzWallWidth + WALL_SIZE;
+                height = WALL_SIZE;
+                posX = (horzWallWidth / 2) + (horzWallWidth * x);
+                posY = vertWallHeight * (MAZE_ROWS - y - 1);
+                [self addWallWithPosition:CGPointMake(posX, posY) andSize:CGSizeMake(width, height)];
+            }
+            
+            // Draw a vertical wall on the east edge if the direction is available and we're not on the last column
+            if (((direction & E) == 0) && (x < MAZE_COLUMNS-1))
+            {
+                width = WALL_SIZE;
+                height = vertWallHeight + WALL_SIZE;
+                posX = horzWallWidth * (x + 1);
+                posY = (vertWallHeight * (MAZE_ROWS - y - 1)) + (vertWallHeight / 2);
+                [self addWallWithPosition:CGPointMake(posX, posY) andSize:CGSizeMake(width, height)];
+            }
+        }
+    }
+}
+
+-(void)addWallWithPosition:(CGPoint)position andSize:(CGSize)size
+{
+    SKSpriteNode *wall = [SKSpriteNode spriteNodeWithColor:BLACK_COLOR size:size];
+    wall.position = position;
+    wall.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:wall.size];
+    wall.physicsBody.dynamic = NO;
+    wall.physicsBody.resting = YES;
+    [self addChild:wall];
+    [walls addObject:wall];
 }
 
 @end

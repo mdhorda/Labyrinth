@@ -21,6 +21,7 @@
 		66FF672819BB6EB100D48F14 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66FF672719BB6EB100D48F14 /* Images.xcassets */; };
 		66FF674719BB72EA00D48F14 /* GreenBall.png in Resources */ = {isa = PBXBuildFile; fileRef = 66FF674619BB72EA00D48F14 /* GreenBall.png */; };
 		66FF674919BBA5E200D48F14 /* BlackHole.png in Resources */ = {isa = PBXBuildFile; fileRef = 66FF674819BBA5E200D48F14 /* BlackHole.png */; };
+		66FF674C19BD036200D48F14 /* Maze.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FF674B19BD036200D48F14 /* Maze.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,8 @@
 		66FF672E19BB6EB100D48F14 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		66FF674619BB72EA00D48F14 /* GreenBall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GreenBall.png; sourceTree = "<group>"; };
 		66FF674819BBA5E200D48F14 /* BlackHole.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlackHole.png; sourceTree = "<group>"; };
+		66FF674A19BD036200D48F14 /* Maze.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Maze.h; sourceTree = "<group>"; };
+		66FF674B19BD036200D48F14 /* Maze.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Maze.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +105,8 @@
 				66FF672019BB6EB100D48F14 /* ViewController.m */,
 				66FF672219BB6EB100D48F14 /* MyScene.h */,
 				66FF672319BB6EB100D48F14 /* MyScene.m */,
+				66FF674A19BD036200D48F14 /* Maze.h */,
+				66FF674B19BD036200D48F14 /* Maze.m */,
 				66FF674619BB72EA00D48F14 /* GreenBall.png */,
 				66FF674819BBA5E200D48F14 /* BlackHole.png */,
 				66FF672719BB6EB100D48F14 /* Images.xcassets */,
@@ -191,6 +196,7 @@
 			files = (
 				66FF672419BB6EB100D48F14 /* MyScene.m in Sources */,
 				66FF672119BB6EB100D48F14 /* ViewController.m in Sources */,
+				66FF674C19BD036200D48F14 /* Maze.m in Sources */,
 				66FF671819BB6EB100D48F14 /* AppDelegate.m in Sources */,
 				66FF671419BB6EB100D48F14 /* main.m in Sources */,
 			);
