@@ -8,17 +8,22 @@
 
 #import "MyScene.h"
 #import "Maze.h"
+#import <CoreMotion/CoreMotion.h>
 #import <math.h>
 
 #define BALL_DIAM 50
 #define BALL_RADIUS BALL_DIAM / 2
 
+// Width of walls
 #define WALL_SIZE 10
 
 #define MAZE_ROWS 5
 #define MAZE_COLUMNS 8
 
-#define GRAVITY_DAMPING_FACTOR 5
+// Twice then normal gravity constant in m/s
+#define GRAVITY_CONSTANT 9.8 * 2
+
+// Margin which will be considered when checking if ball is in hole
 #define BALL_IN_HOLE_MARGIN 5
 
 #define BACKGROUND_COLOR [SKColor colorWithRed:0.85 green:0.85 blue:0.66 alpha:1.0]
@@ -29,6 +34,7 @@
     SKSpriteNode *ball;
     SKSpriteNode *hole;
     NSMutableArray *walls;
+    CMMotionManager *motionManager;
 }
 @end
 
@@ -54,26 +60,23 @@
         ball.position = CGPointMake(BALL_RADIUS, self.size.height - BALL_RADIUS);
         ball.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:BALL_RADIUS];
         ball.physicsBody.dynamic = YES;
+        ball.physicsBody.friction = 0.1;
         [self addChild:ball];
         
         // Create walls
         walls = [NSMutableArray array];
         [self createRandomMaze];
+        
+        // Adjust gravity direction based on accelerometer
+        motionManager = [[CMMotionManager alloc] init];
+        motionManager.accelerometerUpdateInterval = .1;
+        [motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue]
+                                            withHandler:^(CMAccelerometerData  *accelerometerData, NSError *error) {
+                                                self.physicsWorld.gravity = CGVectorMake(-accelerometerData.acceleration.y * GRAVITY_CONSTANT,
+                                                                                         accelerometerData.acceleration.x * GRAVITY_CONSTANT);
+                                            }];
     }
     return self;
-}
-
--(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    // Use touch event to apply impulse to ball and make it move
-    UITouch *touch = [touches anyObject];
-    CGPoint newLocation = [touch locationInView:self.view];
-    CGPoint prevLocation = [touch previousLocationInView:self.view];
-    float xOffset = newLocation.x - prevLocation.x;
-    float yOffset = newLocation.y - prevLocation.y;
-    
-    // Change gravity based on direction of touch
-    self.physicsWorld.gravity = CGVectorMake(xOffset / GRAVITY_DAMPING_FACTOR, -yOffset / GRAVITY_DAMPING_FACTOR);
 }
 
 -(void)update:(CFTimeInterval)currentTime

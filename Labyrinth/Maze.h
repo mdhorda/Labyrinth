@@ -17,6 +17,7 @@ typedef enum : NSUInteger {
 
 // Uses Recursive Backtracing algorithm for maze generation
 // http://weblog.jamisbuck.org/2010/12/27/maze-generation-recursive-backtracking
+
 @interface Maze : NSObject
 
 -(id)initWithRows:(int)rows andColumns:(int)columns;

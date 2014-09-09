@@ -15,9 +15,7 @@
 {
     [super viewWillLayoutSubviews];
 
-    // Configure the view.
     SKView * skView = (SKView *)self.view;
-    
     if (!skView.scene)
     {
         // Create and configure the scene.
@@ -29,9 +27,10 @@
     }
 }
 
-- (BOOL)shouldAutorotate
+// Fixed orientation since we're using accelerometer to control the ball
+- (NSUInteger)supportedInterfaceOrientations
 {
-    return YES;
+    return UIInterfaceOrientationMaskLandscapeRight;
 }
 
 - (BOOL)prefersStatusBarHidden
