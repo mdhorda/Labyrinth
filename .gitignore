@@ -4,3 +4,4 @@ DerivedData/
 build/
 *.pbxuser
 xcuserdata
+xcshareddata
